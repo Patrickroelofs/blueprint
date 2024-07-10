@@ -11,6 +11,7 @@ import {
 import { OutputNode } from "./nodes/output";
 import { TextInputNode } from "./nodes/textInput";
 import { useCallback, useState } from "react";
+import { OpenAPINode } from "./nodes/openapi";
 
 const initialNodes = [
   {
@@ -22,7 +23,13 @@ const initialNodes = [
   {
     id: "2",
     type: "inputNode",
-    position: { x: 500, y: 250 },
+    position: { x: 600, y: 250 },
+    data: {},
+  },
+  {
+    id: "3",
+    type: "openapiNode",
+    position: { x: 250, y: 250 },
     data: {},
   },
 ];
@@ -33,11 +40,17 @@ const initialEdges = [
     source: "2",
     target: "1",
   },
+  {
+    id: "e3-1",
+    source: "3",
+    target: "1",
+  },
 ];
 
 const nodeTypes = {
   outputNode: OutputNode,
   inputNode: TextInputNode,
+  openapiNode: OpenAPINode,
 };
 
 export const Flow = () => {
