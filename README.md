@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blueprint
+
+**Blueprint** is a visual context creator designed for seamless AI image generation. This project provides users with an intuitive platform to bring their ideas to life within a visually dynamic and interactive environment provided by React-flow.
+
+## Future features
+
+- **Visual Context Creation**: Use a visual interface to map out and design the context in which AI-generated images are created.
+- **Customizable Nodes and Edges**: Create custom nodes and edges to fit specific needs and enhance the AI image generation process.
+- **Real-Time Collaboration**: Collaborate with team members in real-time, sharing and editing workflows and contexts.
+- **Scalable and Extensible**: Designed to be scalable and extensible, allowing for easy integration of various AI models and additional functionalities. Bring your own API-key, or hook up a locally running model.
 
 ## Getting Started
 
-First, run the development server:
+To get started with Blueprint, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the Repository**: Clone the Blueprint repository to your local machine.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```bash
+   git clone https://github.com/patrickroelofs/blueprint.git
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Install Dependencies**: Navigate to the project directory and install the necessary dependencies.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   cd blueprint
+   pnpm install
+   ```
 
-## Learn More
+3. **Run the Development Server**: Start the development server to begin working on your project.
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   pnpm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Open in Browser**: Open your browser and navigate to `http://localhost:3000` to see the project in action.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contribution
 
-## Deploy on Vercel
+I welcome contributions from the community! If you want to contribute to Blueprint, please follow these steps, but please remember that this is a personal project:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes and push the branch to your fork.
+4. Open a pull request detailing your changes and the reasons for them.
