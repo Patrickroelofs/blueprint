@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
-export const createImage = async (prompt: string) => {
+const createImage = async (prompt: string) => {
   const openai = new OpenAI({
     apiKey: process.env.OPEN_API_KEY || "",
     organization: process.env.OPEN_API_ORG || "",
