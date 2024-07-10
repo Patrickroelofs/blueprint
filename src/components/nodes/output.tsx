@@ -3,7 +3,6 @@
 import useDataStore from "@/lib/store";
 import { Handle, Position } from "@xyflow/react";
 import Image from "next/image";
-import { Button } from "../ui/button";
 import { useState } from "react";
 
 export const OutputNode = ({ data, isConnectable }: any) => {
@@ -39,7 +38,7 @@ export const OutputNode = ({ data, isConnectable }: any) => {
           <div>
             {image && <Image alt="" src={image} width={256} height={256} />}
             {!image && (
-              <Button onClick={() => callImage(prompt)}>Create Image</Button>
+              <button onClick={() => callImage(prompt)}>Create Image</button>
             )}
           </div>
         )}

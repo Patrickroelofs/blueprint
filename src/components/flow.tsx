@@ -7,7 +7,6 @@ import {
   Background,
   Controls,
   ReactFlow,
-  useUpdateNodeInternals,
 } from "@xyflow/react";
 import { OutputNode } from "./nodes/output";
 import { TextInputNode } from "./nodes/textInput";
