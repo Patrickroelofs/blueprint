@@ -12,14 +12,18 @@ export const TextInputNode = ({ data, isConnectable }: any) => {
   };
 
   return (
-    <div className="w-full h-full bg-white shadow-lg">
-      <textarea value={prompt} onChange={handleChange} className=""></textarea>
+    <div className="w-64 h-28 bg-white shadow-lg p-2">
       <Handle
         type="source"
         position={Position.Top}
         id="textInputSource"
         isConnectable={isConnectable}
       />
+      <textarea
+        value={prompt}
+        onChange={handleChange}
+        className="w-full h-full"
+      ></textarea>
     </div>
   );
 };

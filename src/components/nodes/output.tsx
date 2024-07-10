@@ -37,7 +37,7 @@ export const OutputNode = ({ data, isConnectable }: any) => {
           "Loading..."
         ) : (
           <div>
-            {image && <Image alt="" src={image} width={128} height={128} />}
+            {image && <Image alt="" src={image} width={256} height={256} />}
             {!image && (
               <Button onClick={() => callImage(prompt)}>Create Image</Button>
             )}
@@ -47,7 +47,6 @@ export const OutputNode = ({ data, isConnectable }: any) => {
       <Handle
         type="target"
         position={Position.Bottom}
-        id="outputTarget"
         isConnectable={isConnectable}
       />
     </div>

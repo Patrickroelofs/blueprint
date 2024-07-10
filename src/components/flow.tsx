@@ -31,10 +31,8 @@ const initialNodes = [
 const initialEdges = [
   {
     id: "e1-2",
-    source: "1",
-    sourceHandle: "textInputSource",
-    target: "2",
-    targetHandle: "outputTarget",
+    source: "2",
+    target: "1",
   },
 ];
 
