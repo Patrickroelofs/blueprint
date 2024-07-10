@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
-const createImage = async (prompt: string) => {
+const createImage = async (prompt: string, api_key: string) => {
   const openai = new OpenAI({
-    apiKey: process.env.OPEN_API_KEY || "",
-    organization: process.env.OPEN_API_ORG || "",
+    apiKey: api_key || "",
   });
+
+  console.log(openai);
 
   const response = await openai.images.generate({
     prompt: prompt,
@@ -15,18 +16,23 @@ const createImage = async (prompt: string) => {
     response_format: "url",
   });
 
+  console.log(response);
+
   return response.data[0].url;
 };
 
 export async function POST(request: Request) {
-  const { prompt } = await request.json();
+  const { prompt, api_key } = await request.json();
 
-  if (!prompt) {
-    return NextResponse.json({ error: "Prompt is required" }, { status: 400 });
+  if (!prompt || !api_key) {
+    return NextResponse.json(
+      { error: "Prompt, or api_key is required" },
+      { status: 400 }
+    );
   }
 
   try {
-    const imageUrl = await createImage(prompt);
+    const imageUrl = await createImage(prompt, api_key);
     return NextResponse.json({ url: imageUrl });
   } catch (error) {
     return NextResponse.json({ error: "Open API failed" }, { status: 500 });
