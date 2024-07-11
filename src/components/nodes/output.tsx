@@ -39,17 +39,38 @@ export const OutputNode = ({ data, isConnectable }: any) => {
     <div className="w-full h-full bg-white shadow-lg">
       <div>
         {loading && !error ? (
-          "Loading..."
+          <div>
+            <div className="w-64 h-64 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 background-animate flex justify-center items-center p-4">
+              <span className="text-white italic">
+                An image is generating...
+              </span>
+            </div>
+          </div>
         ) : (
           <div>
             {image && <Image alt="" src={image} width={256} height={256} />}
             {!image && (
-              <button onClick={() => callImage(prompt)}>Create Image</button>
+              <div className="flex flex-col">
+                <div className="w-64 h-64 bg-gradient-to-br from-gray-500 to-gray-800 flex justify-center items-center p-4">
+                  <span className="text-white italic">
+                    No image has been generated.
+                  </span>
+                </div>
+                <div className="m-2 flex justify-center items-center">
+                  <button
+                    onClick={() => callImage(prompt)}
+                    className="bg-slate-100 hover:bg-slate-200 text-black font-bold py-3 px-6 rounded-full"
+                  >
+                    Create Image
+                  </button>
+                </div>
+                {error && (
+                  <p className="text-center text-red-400 pb-4">{error}</p>
+                )}
+              </div>
             )}
           </div>
         )}
-
-        {error && <div>{error}</div>}
       </div>
       <Handle
         type="target"
