@@ -2,7 +2,7 @@ export const initialNodes = [
   {
     id: "1",
     type: "outputNode",
-    position: { x: 0, y: 0 },
+    position: { x: 400, y: -200 },
     data: {},
   },
   {

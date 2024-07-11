@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
   if (!prompt || !api_key) {
     return NextResponse.json(
-      { error: "Prompt, or api_key is required" },
+      { error: "Prompt and/or api_key is required" },
       { status: 400 }
     );
   }
