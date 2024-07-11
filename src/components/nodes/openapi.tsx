@@ -1,27 +1,14 @@
 "use client";
 
-import useDataStore from "@/lib/stores/dataStore";
+import { useApiDataStore } from "@/lib/stores/dataStore";
 import { Handle, Position } from "@xyflow/react";
-import { useEffect, useState } from "react";
 
 export const OpenAPINode = ({ data, isConnectable }: any) => {
-  const prompt = useDataStore((state) => state.api_key);
-
-  useEffect(() => {
-    const storedValue = localStorage.getItem("API_KEY");
-    if (storedValue) {
-      useDataStore.setState({ api_key: storedValue });
-    }
-  }, []);
-
-  const saveToLocalStorage = (value: string) => {
-    localStorage.setItem("API_KEY", value);
-  };
+  const apiValue = useApiDataStore((state) => state.api_key);
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newValue = event.target.value;
-    useDataStore.setState({ api_key: newValue });
-    saveToLocalStorage(newValue);
+    useApiDataStore.setState({ api_key: newValue });
   };
 
   return (
@@ -36,7 +23,7 @@ export const OpenAPINode = ({ data, isConnectable }: any) => {
         isConnectable={isConnectable}
       />
       <textarea
-        value={prompt}
+        value={apiValue}
         onChange={handleChange}
         className="w-full mt-2"
         placeholder="Enter your openAPI key here..."
