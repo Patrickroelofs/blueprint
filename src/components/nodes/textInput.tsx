@@ -1,6 +1,6 @@
 "use client";
 
-import useDataStore from "@/lib/store";
+import useDataStore from "@/lib/stores/dataStore";
 import { Handle, Position } from "@xyflow/react";
 
 export const TextInputNode = ({ data, isConnectable }: any) => {

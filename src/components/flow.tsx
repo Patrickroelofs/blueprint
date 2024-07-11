@@ -1,51 +1,15 @@
 "use client";
 
 import {
-  addEdge,
-  applyEdgeChanges,
-  applyNodeChanges,
   Background,
   Controls,
   ReactFlow,
 } from "@xyflow/react";
 import { OutputNode } from "./nodes/output";
 import { TextInputNode } from "./nodes/textInput";
-import { useCallback, useState } from "react";
 import { OpenAPINode } from "./nodes/openapi";
-
-const initialNodes = [
-  {
-    id: "1",
-    type: "outputNode",
-    position: { x: 0, y: 0 },
-    data: {},
-  },
-  {
-    id: "2",
-    type: "inputNode",
-    position: { x: 600, y: 250 },
-    data: {},
-  },
-  {
-    id: "3",
-    type: "openapiNode",
-    position: { x: 250, y: 250 },
-    data: {},
-  },
-];
-
-const initialEdges = [
-  {
-    id: "e1-2",
-    source: "2",
-    target: "1",
-  },
-  {
-    id: "e3-1",
-    source: "3",
-    target: "1",
-  },
-];
+import useFlowStore from "@/lib/stores/flowStore";
+import { useShallow } from "zustand/react/shallow";
 
 const nodeTypes = {
   outputNode: OutputNode,
@@ -54,21 +18,14 @@ const nodeTypes = {
 };
 
 export const Flow = () => {
-  const [nodes, setNodes] = useState(initialNodes);
-  const [edges, setEdges] = useState(initialEdges);
-
-  const onNodesChange = useCallback(
-    (changes: any) => setNodes((nds) => applyNodeChanges(changes, nds)),
-    []
-  );
-  const onEdgesChange = useCallback(
-    (changes: any) => setEdges((eds) => applyEdgeChanges(changes, eds)),
-    []
-  );
-
-  const onConnect = useCallback(
-    (params: any) => setEdges((eds) => addEdge(params, eds)),
-    []
+  const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useFlowStore(
+    useShallow((state) => ({
+      nodes: state.nodes,
+      edges: state.edges,
+      onNodesChange: state.onNodesChange,
+      onEdgesChange: state.onEdgesChange,
+      onConnect: state.onConnect,
+    })),
   );
 
   return (
