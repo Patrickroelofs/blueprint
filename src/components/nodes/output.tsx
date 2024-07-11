@@ -1,6 +1,6 @@
 "use client";
 
-import useDataStore from "@/lib/store";
+import useDataStore from "@/lib/stores/dataStore";
 import { Handle, Position } from "@xyflow/react";
 import Image from "next/image";
 import { useState } from "react";
