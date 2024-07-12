@@ -1,18 +1,23 @@
+import { model, quality, size } from "@/lib/stores/dataStore";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
-const createImage = async (prompt: string, api_key: string) => {
+const createImage = async (
+  prompt: string,
+  api_key: string,
+  size: size,
+  quality: quality,
+  model: model
+) => {
   const openai = new OpenAI({
     apiKey: api_key || "",
   });
 
-  console.log(openai);
-
   const response = await openai.images.generate({
     prompt: prompt,
-    size: "256x256",
-    quality: "standard",
-    model: "dall-e-2",
+    size: size,
+    quality: quality,
+    model: model,
     response_format: "url",
   });
 
@@ -22,7 +27,7 @@ const createImage = async (prompt: string, api_key: string) => {
 };
 
 export async function POST(request: Request) {
-  const { prompt, api_key } = await request.json();
+  const { prompt, api_key, size, quality, model } = await request.json();
 
   if (!prompt || !api_key) {
     return NextResponse.json(
@@ -32,7 +37,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const imageUrl = await createImage(prompt, api_key);
+    const imageUrl = await createImage(prompt, api_key, size, quality, model);
     return NextResponse.json({ url: imageUrl });
   } catch (error) {
     return NextResponse.json({ error: "Open API failed" }, { status: 500 });
