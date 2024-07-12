@@ -43,3 +43,5 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Open API failed" }, { status: 500 });
   }
 }
+
+export const runtime = "edge";
