@@ -10,6 +10,9 @@ export const OutputNode = ({ data, isConnectable }: any) => {
   const [error, setError] = useState(null);
   const prompt = useDataStore((state) => state.prompt);
   const api_key = useApiDataStore((state) => state.api_key);
+  const size = useApiDataStore((state) => state.size);
+  const quality = useApiDataStore((state) => state.quality);
+  const model = useApiDataStore((state) => state.model);
   const image = useDataStore((state) => state.image);
   const setImage = useDataStore((state) => state.setImage);
 
@@ -21,7 +24,13 @@ export const OutputNode = ({ data, isConnectable }: any) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ prompt: prompt, api_key: api_key }),
+      body: JSON.stringify({
+        prompt: prompt,
+        api_key: api_key,
+        size: size,
+        quality: quality,
+        model: model,
+      }),
     });
 
     const data = await response.json();

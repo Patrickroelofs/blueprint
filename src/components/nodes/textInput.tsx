@@ -19,13 +19,11 @@ export const TextInputNode = ({ data, isConnectable }: any) => {
         id="textInputSource"
         isConnectable={isConnectable}
       />
-      <p className="italic text-sm border-b-2 border-b-gray-200">
-        Text prompt:
-      </p>
+      <p className="text-lg bold">Prompt</p>
       <textarea
         value={prompt}
         onChange={handleChange}
-        className="w-full h-full mt-2"
+        className="w-full mt-2 h-32 border-2 border-gray-200 rounded-md p-2"
       ></textarea>
     </div>
   );
