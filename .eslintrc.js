@@ -16,9 +16,15 @@ module.exports = {
   settings: {
     'import/resolver': { typescript: { project } },
   },
+  rules: {
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      { checksVoidReturn: { attributes: false } },
+    ],
+  },
   overrides: [
     {
-      files: ['src/app/**/{page,layout}.tsx'],
+      files: ['src/app/**/{page,layout}.tsx', 'tailwind.config.ts'],
       rules: {
         'import/no-default-export': 'off',
         'import/prefer-default-export': ['error', { target: 'any' }],

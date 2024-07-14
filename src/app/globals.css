@@ -1,21 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.background-animate {
-  background-size: 400%;
-
-  -webkit-animation: RotatePosition 3s ease infinite;
-  -moz-animation: RotatePosition 3s ease infinite;
-  animation: RotatePosition 3s ease infinite;
-}
-
-@keyframes RotatePosition {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
