@@ -1,32 +1,21 @@
-"use client";
+'use client';
 
-import {
-  Background,
-  Controls,
-  ReactFlow,
-} from "@xyflow/react";
-import { OutputNode } from "./nodes/output";
-import { TextInputNode } from "./nodes/textInput";
-import { OpenAPINode } from "./nodes/openapi";
-import useFlowStore from "@/lib/stores/flowStore";
-import { useShallow } from "zustand/react/shallow";
+import { Background, Controls, ReactFlow } from '@xyflow/react';
+import { useShallow } from 'zustand/react/shallow';
+import { useFlowStore } from '@/lib/flow/store';
+import { NodeTypes } from '@/lib/flow/node-types';
 
-const nodeTypes = {
-  outputNode: OutputNode,
-  inputNode: TextInputNode,
-  openapiNode: OpenAPINode,
-};
-
-export const Flow = () => {
-  const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useFlowStore(
-    useShallow((state) => ({
-      nodes: state.nodes,
-      edges: state.edges,
-      onNodesChange: state.onNodesChange,
-      onEdgesChange: state.onEdgesChange,
-      onConnect: state.onConnect,
-    })),
-  );
+export function Flow(): JSX.Element {
+  const { nodes, edges, onNodesChange, onEdgesChange, onConnect } =
+    useFlowStore(
+      useShallow((state) => ({
+        nodes: state.nodes,
+        edges: state.edges,
+        onNodesChange: state.onNodesChange,
+        onEdgesChange: state.onEdgesChange,
+        onConnect: state.onConnect,
+      })),
+    );
 
   return (
     <div className="w-screen h-screen">
@@ -37,11 +26,11 @@ export const Flow = () => {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         fitView
-        nodeTypes={nodeTypes}
+        nodeTypes={NodeTypes}
       >
         <Background />
         <Controls />
       </ReactFlow>
     </div>
   );
-};
+}

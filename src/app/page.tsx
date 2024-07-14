@@ -1,9 +1,5 @@
-import { Flow } from "@/components/flow";
+import { Flow } from '@/components/flow';
 
-export default function Home() {
-  return (
-    <div>
-      <Flow />
-    </div>
-  );
+export default function Home(): JSX.Element {
+  return <Flow />;
 }

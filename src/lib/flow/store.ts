@@ -1,27 +1,26 @@
-import { create } from "zustand";
-
+import { create } from 'zustand';
 import {
-  Edge,
-  Node,
-  OnNodesChange,
-  OnEdgesChange,
-  OnConnect,
+  type Edge,
+  type Node,
+  type OnNodesChange,
+  type OnEdgesChange,
+  type OnConnect,
   applyNodeChanges,
   applyEdgeChanges,
   addEdge,
-} from "@xyflow/react";
-import { initialNodes } from "./initial/initialNodes";
-import { initialEdges } from "./initial/initialEdges";
+} from '@xyflow/react';
+import { initialNodes } from './initial/initial-nodes';
+import { initialEdges } from './initial/initial-edges';
 
-export type FlowStore = {
+export interface FlowStore {
   nodes: Node[];
   edges: Edge[];
-  onNodesChange: OnNodesChange<Node>;
+  onNodesChange: OnNodesChange;
   onEdgesChange: OnEdgesChange;
   onConnect: OnConnect;
   setNodes: (nodes: Node[]) => void;
   setEdges: (edges: Edge[]) => void;
-};
+}
 
 const useFlowStore = create<FlowStore>((set, get) => ({
   nodes: initialNodes,
@@ -49,4 +48,4 @@ const useFlowStore = create<FlowStore>((set, get) => ({
   },
 }));
 
-export default useFlowStore;
+export { useFlowStore };
