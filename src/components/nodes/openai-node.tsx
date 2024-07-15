@@ -8,17 +8,17 @@ function OpenAINode(props: OpenAINode): JSX.Element {
   const { isConnectable } = props;
 
   return (
-    <div className="w-64 h-full shadow-lg rounded-b-xl bg-white">
+    <div className="h-full w-64 rounded-b-xl bg-white shadow-lg">
       <Handle
         type="target"
         position={Position.Top}
         isConnectable={isConnectable}
       />
 
-      <p className="border-l-2 border-t-2 border-r-2 p-2 border-gray-200 bg-gray-100 rounded-t-xl font-bold">
+      <p className="rounded-t-xl border-l-2 border-r-2 border-t-2 border-gray-200 bg-gray-100 p-2 font-bold">
         OpenAI
       </p>
-      <div className="w-full border-2 border-gray-200 p-2 rounded-b-xl flex flex-col gap-4">
+      <div className="flex w-full flex-col gap-4 rounded-b-xl border-2 border-gray-200 p-2">
         <div className="flex flex-col">
           <label htmlFor="api_key" className="font-medium">
             Api key
@@ -26,7 +26,7 @@ function OpenAINode(props: OpenAINode): JSX.Element {
           <input
             id="api_key"
             type="text"
-            className="border-2 p-2 border-gray-200 rounded-lg"
+            className="rounded-lg border-2 border-gray-200 p-2"
           />
         </div>
       </div>

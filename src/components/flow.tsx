@@ -23,7 +23,7 @@ export function Flow(): JSX.Element {
   const onDragOver = useOnDragOver();
 
   return (
-    <div className="w-screen h-screen">
+    <div className="h-screen w-screen">
       <ReactFlow
         nodes={nodes}
         onNodesChange={onNodesChange}

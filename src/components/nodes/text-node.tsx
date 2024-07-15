@@ -8,19 +8,19 @@ function TextNode(props: TextNode): JSX.Element {
   const { isConnectable } = props;
 
   return (
-    <div className="w-72 h-full shadow-lg rounded-b-xl bg-white">
+    <div className="h-full w-72 rounded-b-xl bg-white shadow-lg">
       <Handle
         type="target"
         position={Position.Top}
         isConnectable={isConnectable}
       />
 
-      <p className="border-l-2 border-t-2 border-r-2 p-2 border-gray-200 bg-gray-100 rounded-t-xl font-bold">
+      <p className="rounded-t-xl border-l-2 border-r-2 border-t-2 border-gray-200 bg-gray-100 p-2 font-bold">
         Text Prompt
       </p>
-      <div className="border-2 border-gray-200 p-2 rounded-b-xl">
+      <div className="rounded-b-xl border-2 border-gray-200 p-2">
         <textarea
-          className="outline-none resize-none p-1 text-sm"
+          className="resize-none p-1 text-sm outline-none"
           rows={6}
           placeholder="Write your text prompt..."
         />
