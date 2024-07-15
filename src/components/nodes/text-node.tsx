@@ -10,7 +10,7 @@ function TextNode(props: TextNode): JSX.Element {
   return (
     <div className="h-full w-72 rounded-b-xl bg-white shadow-lg">
       <Handle
-        type="target"
+        type="source"
         position={Position.Top}
         isConnectable={isConnectable}
       />
@@ -26,7 +26,7 @@ function TextNode(props: TextNode): JSX.Element {
         />
       </div>
       <Handle
-        type="source"
+        type="target"
         position={Position.Bottom}
         isConnectable={isConnectable}
       />

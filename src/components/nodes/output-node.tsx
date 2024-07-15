@@ -11,7 +11,7 @@ function OutputNode(props: OutputNode): JSX.Element {
   return (
     <div className="h-full rounded-b-xl bg-white shadow-lg">
       <Handle
-        type="target"
+        type="source"
         position={Position.Top}
         isConnectable={isConnectable}
       />
@@ -29,7 +29,7 @@ function OutputNode(props: OutputNode): JSX.Element {
         />
       </div>
       <Handle
-        type="source"
+        type="target"
         position={Position.Bottom}
         isConnectable={isConnectable}
       />

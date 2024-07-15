@@ -10,7 +10,7 @@ function OpenAINode(props: OpenAINode): JSX.Element {
   return (
     <div className="h-full w-64 rounded-b-xl bg-white shadow-lg">
       <Handle
-        type="target"
+        type="source"
         position={Position.Top}
         isConnectable={isConnectable}
       />
@@ -31,7 +31,7 @@ function OpenAINode(props: OpenAINode): JSX.Element {
         </div>
       </div>
       <Handle
-        type="source"
+        type="target"
         position={Position.Bottom}
         isConnectable={isConnectable}
       />
