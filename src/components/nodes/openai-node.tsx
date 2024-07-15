@@ -8,7 +8,7 @@ function OpenAINode(props: OpenAINode): JSX.Element {
   const { isConnectable } = props;
 
   return (
-    <div className="h-full w-64 rounded-b-xl bg-white shadow-lg">
+    <div className="h-full w-64 rounded-b-xl shadow-lg">
       <Handle
         type="source"
         position={Position.Top}
@@ -18,7 +18,7 @@ function OpenAINode(props: OpenAINode): JSX.Element {
       <p className="rounded-t-xl border-l-2 border-r-2 border-t-2 border-gray-200 bg-gray-100 p-2 font-bold">
         OpenAI
       </p>
-      <div className="flex w-full flex-col gap-4 rounded-b-xl border-2 border-gray-200 p-2">
+      <div className="flex w-full flex-col gap-4 rounded-b-xl border-2 border-gray-200 bg-white p-2">
         <div className="flex flex-col">
           <label htmlFor="api_key" className="font-medium">
             Api key
