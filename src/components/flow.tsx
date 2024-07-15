@@ -5,9 +5,10 @@ import { useShallow } from 'zustand/react/shallow';
 import { useCallback } from 'react';
 import { useFlowStore } from '@/lib/flow/store';
 import { NodeTypes } from '@/lib/flow/node-types';
+import { useOnDrop } from '@/lib/flow/hooks/on-drop';
 
 export function Flow(): JSX.Element {
-  const { nodes, edges, onNodesChange, onEdgesChange, onConnect, setNodes } =
+  const { nodes, edges, onNodesChange, onEdgesChange, onConnect } =
     useFlowStore(
       useShallow((state) => ({
         nodes: state.nodes,
@@ -15,30 +16,10 @@ export function Flow(): JSX.Element {
         onNodesChange: state.onNodesChange,
         onEdgesChange: state.onEdgesChange,
         onConnect: state.onConnect,
-        setNodes: state.setNodes,
       })),
     );
 
-  const onDrop = useCallback((event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault();
-
-    const type = event.dataTransfer.getData('application/reactflow');
-
-    if (typeof type === 'undefined' || !type) {
-      return;
-    }
-
-    const position = { x: event.clientX, y: event.clientY };
-
-    const newNode = {
-      id: Math.random().toString(),
-      type,
-      position,
-      data: { label: `${type} node` },
-    };
-
-    setNodes([...nodes, newNode]);
-  }, []);
+  const onDrop = useOnDrop();
 
   const onDragOver = useCallback((event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
