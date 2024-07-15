@@ -6,6 +6,7 @@ import { useFlowStore } from '@/lib/flow/store';
 import { NodeTypes } from '@/lib/flow/node-types';
 import { useOnDrop } from '@/lib/flow/hooks/on-drop';
 import { useOnDragOver } from '@/lib/flow/hooks/on-drag-over';
+import { EdgeTypes } from '@/lib/flow/edge-types';
 
 export function Flow(): JSX.Element {
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } =
@@ -32,6 +33,7 @@ export function Flow(): JSX.Element {
         onConnect={onConnect}
         fitView
         nodeTypes={NodeTypes}
+        edgeTypes={EdgeTypes}
         onDrop={onDrop}
         onDragOver={onDragOver}
       >
