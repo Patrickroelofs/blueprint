@@ -8,7 +8,7 @@ function TextNode(props: TextNode): JSX.Element {
   const { isConnectable } = props;
 
   return (
-    <div className="h-full shadow-lg rounded-b-xl bg-white">
+    <div className="w-72 h-full shadow-lg rounded-b-xl bg-white">
       <Handle
         type="target"
         position={Position.Top}

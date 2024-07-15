@@ -10,7 +10,7 @@ function CreateBar(): JSX.Element {
   };
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-auto flex justify-center">
       <div className="w-11/12 h-24 bg-white border-4 p-4 border-gray-200 shadow-xl rounded-xl fixed bottom-8">
         <div className="grid grid-cols-6 w-full h-full">
           <button

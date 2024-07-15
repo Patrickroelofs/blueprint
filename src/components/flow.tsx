@@ -2,10 +2,10 @@
 
 import { Background, Controls, ReactFlow } from '@xyflow/react';
 import { useShallow } from 'zustand/react/shallow';
-import { useCallback } from 'react';
 import { useFlowStore } from '@/lib/flow/store';
 import { NodeTypes } from '@/lib/flow/node-types';
 import { useOnDrop } from '@/lib/flow/hooks/on-drop';
+import { useOnDragOver } from '@/lib/flow/hooks/on-drag-over';
 
 export function Flow(): JSX.Element {
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } =
@@ -20,11 +20,7 @@ export function Flow(): JSX.Element {
     );
 
   const onDrop = useOnDrop();
-
-  const onDragOver = useCallback((event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault();
-    event.dataTransfer.dropEffect = 'move';
-  }, []);
+  const onDragOver = useOnDragOver();
 
   return (
     <div className="w-screen h-screen">
