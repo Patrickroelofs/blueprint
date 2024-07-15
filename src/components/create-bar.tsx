@@ -25,6 +25,18 @@ function CreateBar(): JSX.Element {
         >
           Text Node
         </button>
+
+        <button
+          type="button"
+          className="hover:bg-gray-100 flex justify-center items-center rounded-lg px-4 text-sm"
+          draggable
+          onDragStart={(event) => {
+            onDragStart(event, 'openAINode');
+          }}
+        >
+          OpenAI Node
+        </button>
+
         <button
           type="button"
           className="hover:bg-gray-100 flex justify-center items-center rounded-lg px-4 text-sm"
