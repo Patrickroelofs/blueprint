@@ -1,11 +1,16 @@
-import { Handle, Position } from '@xyflow/react';
+import { Handle, Position, useReactFlow } from '@xyflow/react';
 
 interface OpenAINode {
+  id: string;
+  data: {
+    apiKey: string;
+  };
   isConnectable: boolean;
 }
 
 function OpenAINode(props: OpenAINode): JSX.Element {
-  const { isConnectable } = props;
+  const { id, data, isConnectable } = props;
+  const { updateNodeData } = useReactFlow();
 
   return (
     <div className="h-full w-64 rounded-b-xl shadow-lg">
@@ -26,6 +31,10 @@ function OpenAINode(props: OpenAINode): JSX.Element {
           <input
             id="api_key"
             type="text"
+            onChange={(e) => {
+              updateNodeData(id, { api_key: e.target.value });
+            }}
+            value={data.apiKey}
             className="rounded-lg border-2 border-gray-200 p-2"
           />
         </div>

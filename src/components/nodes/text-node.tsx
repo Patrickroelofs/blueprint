@@ -1,11 +1,16 @@
-import { Handle, Position } from '@xyflow/react';
+import { Handle, Position, useReactFlow } from '@xyflow/react';
 
 interface TextNode {
+  id: string;
+  data: {
+    text: string;
+  };
   isConnectable: boolean;
 }
 
 function TextNode(props: TextNode): JSX.Element {
-  const { isConnectable } = props;
+  const { id, data, isConnectable } = props;
+  const { updateNodeData } = useReactFlow();
 
   return (
     <div className="h-full w-72 rounded-b-xl shadow-lg">
@@ -20,6 +25,10 @@ function TextNode(props: TextNode): JSX.Element {
       </p>
       <div className="rounded-b-xl border-2 border-gray-200 bg-white p-2">
         <textarea
+          onChange={(evt) => {
+            updateNodeData(id, { text: evt.target.value });
+          }}
+          value={data.text}
           className="resize-none p-1 text-sm outline-none"
           rows={6}
           placeholder="Write your text prompt..."
