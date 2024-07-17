@@ -27,7 +27,7 @@ jobs:
         run: pnpm install
 
       - name: Run ESLint
-        run: pnpm exec eslint . --format @microsoft/eslint-formatter-sarif > lint-results.sarif
+        run: pnpm exec eslint . --format @microsoft/eslint-formatter-sarif > lint-results.sarif || true
         continue-on-error: true
 
       - name: Upload analysis results to GitHub
