@@ -4,6 +4,7 @@ const project = resolve(__dirname, 'tsconfig.json');
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
+  parser: '@typescript-eslint/parser',
   root: true,
   extends: [
     require.resolve('@vercel/style-guide/eslint/browser'),
@@ -12,9 +13,14 @@ module.exports = {
     require.resolve('@vercel/style-guide/eslint/next'),
     require.resolve('@vercel/style-guide/eslint/typescript'),
   ],
-  parserOptions: { project },
+  parserOptions: {
+    project: [project],
+    tsconfigRootDir: __dirname,
+    sourceType: 'module',
+  },
   settings: {
     'import/resolver': { typescript: { project } },
+    '@typescript-eslint/parser': { project },
   },
   rules: {
     '@typescript-eslint/no-misused-promises': [
