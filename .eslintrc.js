@@ -12,9 +12,14 @@ module.exports = {
     require.resolve('@vercel/style-guide/eslint/next'),
     require.resolve('@vercel/style-guide/eslint/typescript'),
   ],
-  parserOptions: { project },
+  parserOptions: {
+    project: [project],
+    tsconfigRootDir: __dirname,
+    sourceType: 'module',
+  },
   settings: {
     'import/resolver': { typescript: { project } },
+    '@typescript-eslint/parser': { project },
   },
   rules: {
     '@typescript-eslint/no-misused-promises': [
