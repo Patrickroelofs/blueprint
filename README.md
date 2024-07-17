@@ -1,4 +1,5 @@
 # Blueprint
+![image](https://github.com/user-attachments/assets/66250b21-520d-4f2a-bf8e-2393cea9682a)
 
 **Blueprint** is a visual context creator designed for seamless AI image generation. This project provides users with an intuitive platform to bring their ideas to life within a visually dynamic and interactive environment provided by React-flow.
 
