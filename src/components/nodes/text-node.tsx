@@ -8,7 +8,7 @@ interface TextNode {
   isConnectable: boolean;
 }
 
-function TextNode(props: TextNode): JSX.Element {
+function TextNode(props: any): JSX.Element {
   const { id, data, isConnectable } = props;
   const { updateNodeData } = useReactFlow();
 
