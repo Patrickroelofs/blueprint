@@ -1,16 +1,36 @@
-import { Handle, Position, useReactFlow } from '@xyflow/react';
+import {
+  Handle,
+  type Node,
+  Position,
+  useHandleConnections,
+  useNodesData,
+  useReactFlow,
+} from '@xyflow/react';
+import { useEffect } from 'react';
+import { LimitHandle } from '../handles/limit-handle';
+import { type TextNode } from './text-node';
 
-interface OpenAINode {
-  id: string;
-  data: {
-    apiKey: string;
-  };
+interface OpenAINode extends Node<{ apiKey: string }, 'openai'> {
   isConnectable: boolean;
 }
 
 function OpenAINode(props: OpenAINode): JSX.Element {
   const { id, data, isConnectable } = props;
   const { updateNodeData } = useReactFlow();
+
+  const connections = useHandleConnections({
+    type: 'target',
+  });
+
+  const nodesData = useNodesData<TextNode>(
+    connections.map((connection) => connection.source),
+  );
+
+  useEffect(() => {
+    updateNodeData(id, {
+      text: nodesData[0]?.data.text,
+    });
+  }, [id, nodesData, updateNodeData]);
 
   return (
     <div className="h-full w-64 rounded-b-xl shadow-lg">
@@ -39,10 +59,11 @@ function OpenAINode(props: OpenAINode): JSX.Element {
           />
         </div>
       </div>
-      <Handle
+      <LimitHandle
         type="target"
         position={Position.Bottom}
         isConnectable={isConnectable}
+        connectioncount={1}
       />
     </div>
   );

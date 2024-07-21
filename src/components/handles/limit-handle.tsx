@@ -1,7 +1,7 @@
 import { Handle, type HandleProps, useHandleConnections } from '@xyflow/react';
 
 interface LimitHandle extends HandleProps {
-  connectionCount: number;
+  connectioncount: number;
 }
 
 function LimitHandle(props: LimitHandle): JSX.Element {
@@ -12,7 +12,7 @@ function LimitHandle(props: LimitHandle): JSX.Element {
   return (
     <Handle
       {...props}
-      isConnectable={connections.length < props.connectionCount}
+      isConnectable={connections.length < props.connectioncount}
     />
   );
 }
