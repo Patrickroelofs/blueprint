@@ -1,5 +1,6 @@
 import { Handle, Position } from '@xyflow/react';
 import Image from 'next/image';
+import { LimitHandle } from '../handles/limit-handle';
 
 interface OutputNode {
   isConnectable: boolean;
@@ -28,10 +29,11 @@ function OutputNode(props: OutputNode): JSX.Element {
           height={256}
         />
       </div>
-      <Handle
+      <LimitHandle
         type="target"
         position={Position.Bottom}
         isConnectable={isConnectable}
+        connectionCount={1}
       />
     </div>
   );
