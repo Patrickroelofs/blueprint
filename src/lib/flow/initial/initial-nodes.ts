@@ -7,6 +7,7 @@ export const initialNodes = [
       x: 250,
       y: 300,
     },
+    deletable: false,
   },
   {
     id: '2',
@@ -16,6 +17,7 @@ export const initialNodes = [
       x: 0,
       y: 0,
     },
+    deletable: false,
   },
   {
     id: '3',
@@ -25,5 +27,6 @@ export const initialNodes = [
       x: 250,
       y: -500,
     },
+    deletable: false,
   },
 ];

@@ -1,6 +1,6 @@
-import { Handle, Position, useReactFlow } from '@xyflow/react';
+import { Handle, type Node, Position, useReactFlow } from '@xyflow/react';
 
-interface TextNode {
+interface TextNode extends Node<{ text: string }, 'text'> {
   id: string;
   data: {
     text: string;
@@ -34,11 +34,6 @@ function TextNode(props: TextNode): JSX.Element {
           placeholder="Write your text prompt..."
         />
       </div>
-      <Handle
-        type="target"
-        position={Position.Bottom}
-        isConnectable={isConnectable}
-      />
     </div>
   );
 }
