@@ -1,16 +1,13 @@
-import { Handle, type Node, Position } from '@xyflow/react';
+import { Handle, type Node, type NodeProps, Position } from '@xyflow/react';
 import Image from 'next/image';
-import { useDataStore } from '@/lib/flow/data-store';
 import { LimitHandle } from '../handles/limit-handle';
 
-interface OutputNode extends Node<{ text: string }, 'output'> {
+interface OutputNode extends Node<{ image: string }, 'outputNode'> {
   isConnectable: boolean;
 }
 
-function OutputNode(props: OutputNode): JSX.Element {
+function OutputNode(props: NodeProps<OutputNode>): JSX.Element {
   const { isConnectable } = props;
-
-  const { image } = useDataStore();
 
   return (
     <div className="h-full rounded-b-xl shadow-lg">
@@ -26,7 +23,7 @@ function OutputNode(props: OutputNode): JSX.Element {
       <div className="flex items-center justify-center rounded-b-xl border-2 border-gray-200 bg-white p-2">
         <Image
           className="rounded-lg"
-          src={image ?? 'https://via.placeholder.com/128'}
+          src="https://via.placeholder.com/128"
           alt="Output Node"
           width={256}
           height={256}

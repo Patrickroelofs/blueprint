@@ -1,6 +1,7 @@
 import {
   Handle,
   type Node,
+  type NodeProps,
   Position,
   useHandleConnections,
   useNodesData,
@@ -10,11 +11,11 @@ import { useEffect } from 'react';
 import { LimitHandle } from '../handles/limit-handle';
 import { type TextNode } from './text-node';
 
-interface OpenAINode extends Node<{ apiKey: string }, 'openai'> {
+interface OpenAINode extends Node<{ apiKey: string }, 'openAINode'> {
   isConnectable: boolean;
 }
 
-function OpenAINode(props: OpenAINode): JSX.Element {
+function OpenAINode(props: NodeProps<OpenAINode>): JSX.Element {
   const { id, data, isConnectable } = props;
   const { updateNodeData } = useReactFlow();
 

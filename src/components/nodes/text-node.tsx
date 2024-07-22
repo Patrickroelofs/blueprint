@@ -1,14 +1,19 @@
-import { Handle, type Node, Position, useReactFlow } from '@xyflow/react';
+import {
+  Handle,
+  type Node,
+  type NodeProps,
+  Position,
+  useReactFlow,
+} from '@xyflow/react';
 
-interface TextNode extends Node<{ text: string }, 'text'> {
-  id: string;
+interface TextNode extends Node<{ text: string }, 'textNode'> {
   data: {
     text: string;
   };
   isConnectable: boolean;
 }
 
-function TextNode(props: TextNode): JSX.Element {
+function TextNode(props: NodeProps<TextNode>): JSX.Element {
   const { id, data, isConnectable } = props;
   const { updateNodeData } = useReactFlow();
 
