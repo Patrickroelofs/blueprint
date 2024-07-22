@@ -30,7 +30,11 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['src/app/**/{page,layout}.tsx', 'tailwind.config.ts'],
+      files: [
+        'src/app/**/{page,layout}.tsx',
+        'tailwind.config.ts',
+        'src/app/api/*.ts',
+      ],
       rules: {
         'import/no-default-export': 'off',
         'import/prefer-default-export': ['error', { target: 'any' }],
