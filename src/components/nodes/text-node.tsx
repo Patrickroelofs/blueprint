@@ -7,9 +7,6 @@ import {
 } from '@xyflow/react';
 
 interface TextNode extends Node<{ text: string }, 'textNode'> {
-  data: {
-    text: string;
-  };
   isConnectable: boolean;
 }
 
