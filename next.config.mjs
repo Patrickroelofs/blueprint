@@ -1,9 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [{
-      hostname: 'via.placeholder.com',
-    }]
+    remotePatterns: [
+      {
+        hostname: 'via.placeholder.com',
+      },
+      {
+        hostname: 'oaidalleapiprodscus.blob.core.windows.net',
+      },
+    ],
   },
 };
 

@@ -1,7 +1,7 @@
 import { SimpleEdge } from '@/components/edges/simple-edge';
-import { TriggerEdge } from '@/components/edges/trigger-edge';
+import { TriggerOpenAIEdge } from '@/components/edges/trigger-openai-edge';
 
 export const EdgeTypes = {
-  triggerEdge: TriggerEdge,
+  triggerOpenAIEdge: TriggerOpenAIEdge,
   simpleEdge: SimpleEdge,
 };
