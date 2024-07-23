@@ -3,35 +3,23 @@ import {
   type Node,
   type NodeProps,
   Position,
-  useHandleConnections,
-  useNodesData,
   useReactFlow,
 } from '@xyflow/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { LimitHandle } from '../handles/limit-handle';
-import { type TextNode } from './text-node';
 
 interface OpenAINode extends Node<{ apiKey: string }, 'openAINode'> {
   isConnectable: boolean;
 }
 
 function OpenAINode(props: NodeProps<OpenAINode>): JSX.Element {
-  const { id, data, isConnectable } = props;
+  const { id, isConnectable } = props;
+  const [value, setValue] = useState<string>('');
   const { updateNodeData } = useReactFlow();
 
-  const connections = useHandleConnections({
-    type: 'target',
-  });
-
-  const nodesData = useNodesData<TextNode>(
-    connections.map((connection) => connection.source),
-  );
-
   useEffect(() => {
-    updateNodeData(id, {
-      text: nodesData[0]?.data.text,
-    });
-  }, [id, nodesData, updateNodeData]);
+    updateNodeData(id, { apiKey: value });
+  }, [value, id, updateNodeData]);
 
   return (
     <div className="h-full w-64 rounded-b-xl shadow-lg">
@@ -53,9 +41,9 @@ function OpenAINode(props: NodeProps<OpenAINode>): JSX.Element {
             id="api_key"
             type="text"
             onChange={(e) => {
-              updateNodeData(id, { api_key: e.target.value });
+              setValue(e.target.value);
             }}
-            value={data.apiKey}
+            value={value}
             className="rounded-lg border-2 border-gray-200 p-2"
           />
         </div>

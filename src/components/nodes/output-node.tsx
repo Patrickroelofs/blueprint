@@ -1,4 +1,12 @@
-import { Handle, type Node, type NodeProps, Position } from '@xyflow/react';
+import {
+  getIncomers,
+  Handle,
+  type Node,
+  type NodeProps,
+  Position,
+  useEdges,
+  useNodes,
+} from '@xyflow/react';
 import Image from 'next/image';
 import { LimitHandle } from '../handles/limit-handle';
 
@@ -8,6 +16,20 @@ interface OutputNode extends Node<{ image: string }, 'outputNode'> {
 
 function OutputNode(props: NodeProps<OutputNode>): JSX.Element {
   const { isConnectable } = props;
+  const nodes = useNodes();
+  const edges = useEdges();
+  const incoming = getIncomers(props, nodes, edges);
+
+  const findImage = (): string => {
+    for (const item of incoming) {
+      if (item.data.image) {
+        return item.data.image as string;
+      }
+    }
+
+    // TODO: Return failed state
+    return 'https://via.placeholder.com/256';
+  };
 
   return (
     <div className="h-full rounded-b-xl shadow-lg">
@@ -23,7 +45,7 @@ function OutputNode(props: NodeProps<OutputNode>): JSX.Element {
       <div className="flex items-center justify-center rounded-b-xl border-2 border-gray-200 bg-white p-2">
         <Image
           className="rounded-lg"
-          src="https://via.placeholder.com/128"
+          src={findImage()}
           alt="Output Node"
           width={256}
           height={256}

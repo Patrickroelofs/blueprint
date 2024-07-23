@@ -9,7 +9,7 @@ export const initialEdges = [
     id: '2-3',
     source: '2',
     target: '3',
-    type: 'triggerEdge',
+    type: 'triggerOpenAIEdge',
     deletable: false,
   },
 ];
