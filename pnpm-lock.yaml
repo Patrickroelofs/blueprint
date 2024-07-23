@@ -9,14 +9,14 @@ importers:
   .:
     dependencies:
       '@xyflow/react':
-        specifier: ^12.0.2
-        version: 12.0.2(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^12.0.3
+        version: 12.0.3(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next:
         specifier: 14.2.5
         version: 14.2.5(@babel/core@7.24.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       openai:
-        specifier: ^4.0.0
-        version: 4.52.4
+        specifier: ^4.53.0
+        version: 4.53.0
       react:
         specifier: ^18
         version: 18.3.1
@@ -532,14 +532,14 @@ packages:
       typescript:
         optional: true
 
-  '@xyflow/react@12.0.2':
-    resolution: {integrity: sha512-Y/sYfOeo6o1AOA2YUa2aaGPQ6aVtbirsTQEDxVx7SFGktCwTcunt/yJ4exvOkEY9WdJfd6qrGilYQycqFd5kwg==}
+  '@xyflow/react@12.0.3':
+    resolution: {integrity: sha512-PJB9ARsyDesjS9fY3b62mm36nHx9aRA8tvUc5y0ubrMkSCvQRECkOamVDyx+u65UgUkZCgcO/KFdXPdbTWwaJQ==}
     peerDependencies:
       react: '>=17'
       react-dom: '>=17'
 
-  '@xyflow/system@0.0.36':
-    resolution: {integrity: sha512-u7zWPnZhgX7Yf7L9hq5NLmP3srMe8Do+SEVeNG5r67cFISo2hul/4lrqFE2BzV+n1gyaSrNDR0XqA8aeH1Hqfg==}
+  '@xyflow/system@0.0.37':
+    resolution: {integrity: sha512-hSIhezhxgftPUpC+xiQVIorcRILZUOWlLjpYPTyGWRu8s4RJvM4GqvrsFmD5OnMKXLgpU7/PqqUibDVO67oWQQ==}
 
   abort-controller@3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
@@ -1735,8 +1735,8 @@ packages:
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
 
-  openai@4.52.4:
-    resolution: {integrity: sha512-3CkV7e8epJBnTe5ptn4i3ivfm1d8cvkbvBOzhGmGYEarpDpcCgwOMV1aBPvZ/HoveUtREWUE9Fqcy7BcPNtMJg==}
+  openai@4.53.0:
+    resolution: {integrity: sha512-XoMaJsSLuedW5eoMEMmZbdNoXgML3ujcU5KfwRnC6rnbmZkHE2Q4J/SArwhqCxQRqJwHnQUj1LpiROmKPExZJA==}
     hasBin: true
 
   optionator@0.9.4:
@@ -2955,9 +2955,9 @@ snapshots:
       - supports-color
       - vitest
 
-  '@xyflow/react@12.0.2(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@xyflow/react@12.0.3(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@xyflow/system': 0.0.36
+      '@xyflow/system': 0.0.37
       classcat: 5.0.5
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -2966,7 +2966,7 @@ snapshots:
       - '@types/react'
       - immer
 
-  '@xyflow/system@0.0.36':
+  '@xyflow/system@0.0.37':
     dependencies:
       '@types/d3-drag': 3.0.7
       '@types/d3-selection': 3.0.10
@@ -4409,7 +4409,7 @@ snapshots:
     dependencies:
       wrappy: 1.0.2
 
-  openai@4.52.4:
+  openai@4.53.0:
     dependencies:
       '@types/node': 18.19.39
       '@types/node-fetch': 2.6.11
