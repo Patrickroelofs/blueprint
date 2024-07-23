@@ -15,8 +15,8 @@ importers:
         specifier: 14.2.5
         version: 14.2.5(@babel/core@7.24.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       openai:
-        specifier: ^4.0.0
-        version: 4.52.4
+        specifier: ^4.53.0
+        version: 4.53.0
       react:
         specifier: ^18
         version: 18.3.1
@@ -1735,8 +1735,8 @@ packages:
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
 
-  openai@4.52.4:
-    resolution: {integrity: sha512-3CkV7e8epJBnTe5ptn4i3ivfm1d8cvkbvBOzhGmGYEarpDpcCgwOMV1aBPvZ/HoveUtREWUE9Fqcy7BcPNtMJg==}
+  openai@4.53.0:
+    resolution: {integrity: sha512-XoMaJsSLuedW5eoMEMmZbdNoXgML3ujcU5KfwRnC6rnbmZkHE2Q4J/SArwhqCxQRqJwHnQUj1LpiROmKPExZJA==}
     hasBin: true
 
   optionator@0.9.4:
@@ -4409,7 +4409,7 @@ snapshots:
     dependencies:
       wrappy: 1.0.2
 
-  openai@4.52.4:
+  openai@4.53.0:
     dependencies:
       '@types/node': 18.19.39
       '@types/node-fetch': 2.6.11
