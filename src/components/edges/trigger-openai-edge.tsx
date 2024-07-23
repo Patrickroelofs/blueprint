@@ -3,16 +3,20 @@ import {
   EdgeLabelRenderer,
   type EdgeProps,
   getBezierPath,
-  useNodesData,
   useReactFlow,
 } from '@xyflow/react';
 import OpenAI from 'openai';
 import { PiPaintBrushDuotone } from 'react-icons/pi';
-import { type OpenAINode } from '../nodes/openai-node';
+import { useFlowStore } from '@/lib/flow/store';
 
 function TriggerOpenAIEdge(props: EdgeProps): JSX.Element {
-  const nodes = useNodesData<OpenAINode>([props.source, props.target]);
-  const apiKey = nodes.find((node) => node.type === 'openAINode')?.data.apiKey;
+  const nodes = useFlowStore((state) => state.nodes);
+  // TODO: Ensure this is not "as string"
+  const apiKey = nodes.find((node) => node.type === 'openAINode')?.data
+    .apiKey as string;
+  const prompt = nodes.find((node) => node.type === 'textNode')?.data
+    .text as string;
+
   const { updateNodeData } = useReactFlow();
 
   const {
@@ -49,7 +53,7 @@ function TriggerOpenAIEdge(props: EdgeProps): JSX.Element {
 
     // TODO: Add to node data; model, quality, size, response_format
     const response = await openai.images.generate({
-      prompt: 'a red car, blue sky, green grass',
+      prompt,
       model: 'dall-e-2',
       quality: 'standard',
       size: '256x256',
