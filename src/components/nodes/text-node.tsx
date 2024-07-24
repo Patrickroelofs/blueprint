@@ -6,7 +6,12 @@ import {
   useReactFlow,
 } from '@xyflow/react';
 
-interface TextNode extends Node<{ text: string }, 'textNode'> {
+export interface TextNodeData {
+  text: string;
+  [key: string]: unknown;
+}
+
+interface TextNode extends Node<TextNodeData, 'textNode'> {
   isConnectable: boolean;
 }
 
@@ -31,7 +36,7 @@ function TextNode(props: NodeProps<TextNode>): JSX.Element {
             updateNodeData(id, { text: evt.target.value });
           }}
           value={data.text}
-          className="resize-none p-1 text-sm outline-none"
+          className="h-full w-full resize-none p-1 text-sm outline-none"
           rows={6}
           placeholder="Write your text prompt..."
         />

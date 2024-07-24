@@ -27,6 +27,7 @@ module.exports = {
       'error',
       { checksVoidReturn: { attributes: false } },
     ],
+    'no-console': 'warn',
   },
   overrides: [
     {

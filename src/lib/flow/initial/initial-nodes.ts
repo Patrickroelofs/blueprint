@@ -4,8 +4,8 @@ export const initialNodes = [
     type: 'textNode',
     data: {},
     position: {
-      x: 250,
-      y: 300,
+      x: 280,
+      y: 650,
     },
     deletable: false,
   },
