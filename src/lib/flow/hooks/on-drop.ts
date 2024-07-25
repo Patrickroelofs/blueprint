@@ -1,7 +1,7 @@
 import { useReactFlow } from '@xyflow/react';
 import { useCallback } from 'react';
 import { useShallow } from 'zustand/react/shallow';
-import { useFlowStore } from '../store';
+import { useFlowStore } from '../flow-store';
 
 type UseOnDrop = (event: React.DragEvent<HTMLDivElement>) => void;
 

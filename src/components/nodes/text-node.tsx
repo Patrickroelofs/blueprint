@@ -23,7 +23,7 @@ function TextNode(props: NodeProps<TextNode>): JSX.Element {
     <div className="h-full w-72 rounded-b-xl shadow-lg">
       <Handle
         type="source"
-        position={Position.Top}
+        position={Position.Right}
         isConnectable={isConnectable}
       />
 

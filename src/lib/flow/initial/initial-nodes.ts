@@ -4,8 +4,8 @@ export const initialNodes = [
     type: 'textNode',
     data: {},
     position: {
-      x: 280,
-      y: 650,
+      x: 0,
+      y: 0,
     },
     deletable: false,
   },
@@ -14,7 +14,7 @@ export const initialNodes = [
     type: 'openAINode',
     data: {},
     position: {
-      x: 0,
+      x: 600,
       y: 0,
     },
     deletable: false,
@@ -24,8 +24,8 @@ export const initialNodes = [
     type: 'outputNode',
     data: {},
     position: {
-      x: 250,
-      y: -500,
+      x: 1200,
+      y: -250,
     },
     deletable: false,
   },

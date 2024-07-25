@@ -46,7 +46,7 @@ function OpenAINode(props: NodeProps<OpenAINode>): JSX.Element {
     <div className="h-full w-64 rounded-b-xl shadow-lg">
       <Handle
         type="source"
-        position={Position.Top}
+        position={Position.Right}
         isConnectable={isConnectable}
       />
 
@@ -164,7 +164,7 @@ function OpenAINode(props: NodeProps<OpenAINode>): JSX.Element {
       </div>
       <LimitHandle
         type="target"
-        position={Position.Bottom}
+        position={Position.Left}
         isConnectable={isConnectable}
         connectioncount={1}
       />

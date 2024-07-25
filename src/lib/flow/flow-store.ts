@@ -40,10 +40,10 @@ const useFlowStore = create<FlowStore>((set, get) => ({
       edges: addEdge(connection, get().edges),
     });
   },
-  setNodes: (nodes) => {
+  setNodes: (nodes: Node[]) => {
     set({ nodes });
   },
-  setEdges: (edges) => {
+  setEdges: (edges: Edge[]) => {
     set({ edges });
   },
 }));

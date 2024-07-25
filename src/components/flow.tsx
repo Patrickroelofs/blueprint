@@ -2,7 +2,7 @@
 
 import { Background, Controls, ReactFlow } from '@xyflow/react';
 import { useShallow } from 'zustand/react/shallow';
-import { useFlowStore } from '@/lib/flow/store';
+import { useFlowStore } from '@/lib/flow/flow-store';
 import { NodeTypes } from '@/lib/flow/node-types';
 import { useOnDrop } from '@/lib/flow/hooks/on-drop';
 import { useOnDragOver } from '@/lib/flow/hooks/on-drag-over';
